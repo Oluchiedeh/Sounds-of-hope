@@ -1,0 +1,20 @@
+img {
+    width: 400px;
+    height: 100%;
+  }
+  
+  nav {
+    color: red;
+    margin-left: 0%
+  }
+  
+  h1 {
+    align-items:  center;
+  }
+  
+  button {
+    color: green;
+    padding: 14px;
+    border-radius: 20px
+    
+  }
