@@ -1,0 +1,23 @@
+{
+  "name": "hope-sounds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oluchiedeh/Sounds-of-hope.git"
+  },
+  "author": "Oluchukwu Edeh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oluchiedeh/Sounds-of-hope/issues"
+  },
+  "homepage": "https://github.com/Oluchiedeh/Sounds-of-hope#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.1"
+  }
+}

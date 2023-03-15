@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Sounds Of Hope</h1>
+  <img src="mixer.png" alt="test" />
+  <p>
+  <h2> Welcome to The Sounds of Hope unit</h2>
+  </p>
+  <form method="post" id="create-subscriber">
+    <div class="form-field">
+      <div class="label">Name</div>
+      <div class="field">
+        <input type="text" placeholder="John Doe" id="sub-name" />
+      </div>
+    </div>
+
+    <div class="form-field">
+      <div class="label">Email</div>
+      <div class="field">
+        <input type="email" placeholder="your@email.com" id="sub-email" />
+      </div>
+    </div>
+
+    <button>Subscribe</button>
+  </form>
+  <br /> <br />
+
+  <form method="post" id="check-subscription">
+    <div class="form-field">
+      <div class="label">Email</div>
+      <div class="field">
+        <input type="email" placeholder="your@email.com" id="email-check" />
+      </div>
+    </div>
+
+    <h3 id="response"></h3>
+
+    <button>Check Subscription</button>
+  </form>
+
+  <script>
+    document.getElementById('check-subscription').onsubmit = function (e) {
+      e.preventDefault();
+      var email = document.getElementById("email-check").value;
+
+      fetch("/subscriber/?email=" + encodeURIComponent(email)).then(async (res) => {
+        const message = await res.text();
+        document.getElementById("response").innerHTML = message;
+      })
+    };
+
+    document.getElementById('create-subscriber').onsubmit = function (e) {
+      e.preventDefault();
+      const email = document.getElementById("sub-email").value;
+      const name = document.getElementById("sub-name").value;
+      const newSubscriber = { email, name };
+
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newSubscriber),
+      };
+
+      fetch("/subscriber", options).then(async (res) => {
+        const message = await res.text();
+        alert(message);
+        // document.getElementById("response").innerHTML = message;
+      })
+    }
+  </script>
+</body>
+
+</html>
